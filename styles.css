@@ -1,0 +1,427 @@
+/* defining variables for colors */
+:root {
+  --color1: #cad2c5;
+  --color2: #84a98c;
+  --color3: #52796f;
+  --color4: #354f52;
+  --color5: #2f3e46;
+}
+
+/* general styling */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color1);
+  box-shadow: 2rem 2rem 7rem 3rem var(--color2) inset;
+}
+
+/* this makes it so scrolling to each section scrolls in a smooth manner */
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: var(--color5);
+}
+
+/* transition */
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* desktop navigation */
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 20vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--color5);
+  text-decoration: none;
+  margin: 0.2rem;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: var(--color2);
+  color: var(--color3);
+  text-transform: capitalize;
+}
+
+.logo-name {
+  font-size: 2rem;
+}
+
+/* removes text cursor, instead shows default over logo/name*/
+.logo-name:hover {
+  cursor: default;
+}
+
+/* hamburger menu */
+#hamburger-nav {
+  display: none; /*in desktop vew this will not show the hamburger menu */
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color3);
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--color1);
+  border-radius: 10%;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color4);
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+/* starting to use js function and what it does when opening */
+/* essentially what the hamburger bar does when clicked(turns into an X and opens nav links */
+.menu-links.open {
+  max-height: 3000px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+/*Sections  */
+
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* profile section */
+
+#profile-hero {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.section__pic-container {
+  display: flex;
+  width: 400px;
+  height: 400px;
+  margin: auto 0;
+}
+.section__pic-container img {
+  border-radius: 2rem;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+.section__text__p1 {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+.section__text__p2 {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#social-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Buttons */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+}
+.btn-color1,
+.btn-color2 {
+  border: var(--color4) 0.1rem solid;
+}
+
+.btn-color1 {
+  background-color: var(--color4);
+  color: var(--color1);
+}
+.btn-color1:hover,
+.btn-color2:hover {
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0.5rem 0.5rem 2.5rem var(--color3);
+}
+
+.btn-color1:hover {
+  background-color: var(--color3);
+}
+.btn-color2:hover {
+  background-color: var(--color3);
+  color: var(--color1);
+}
+
+/* about section */
+
+#about {
+  position: relative;
+  color: var(--color5);
+}
+
+.about-containers {
+  gap: 2rem;
+  margin: 2rem 0;
+  display: flex;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  flex-wrap: wrap;
+  background-color: var(--color1);
+  border-radius: 2rem;
+  border: var(--color4) 0.1rem solid;
+  text-align: center;
+  box-shadow: 1rem 1rem 1rem var(--color5);
+}
+.details-container h3 {
+  line-height: 2rem;
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+.section__pic-container {
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+/* Experience section */
+
+#experience {
+  position: relative;
+}
+
+.experience-sub-title {
+  color: var(--color3);
+  font-weight: 500;
+  font-size: 1.75rem;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+}
+
+/* Projects section */
+
+#projects {
+  position: relative;
+}
+
+.color-container {
+  border-color: var(--color2);
+  background-color: var(--color1);
+}
+
+.project-img {
+  width: 90%;
+  height: 90%;
+  border-radius: 1rem;
+}
+
+.project-title {
+  margin: 1rem;
+  color: var(--color5);
+}
+
+.project-btn {
+  color: var(--color5);
+  border-color: var(--color1);
+}
+
+/* contact section */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: var(--color3) 0.1rem solid;
+  background: (250, 250, 250);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
